@@ -363,3 +363,50 @@ footer { text-align: center; padding: 20px; color: #777; }
     margin-bottom: 12px; /* Espacio entre cada punto para que no se vean amontonados */
     padding-left: 10px;  /* Espacio entre el punto (bullet) y el texto */
 }
+
+/* --- OPTIMIZACIÓN MÓVIL PARA FIXORLAB --- */
+
+@media (max-width: 768px) {
+    /* 1. La pantalla dividida ahora es una sola columna */
+    .inicio-split {
+        flex-direction: column-reverse; /* La foto arriba, el texto abajo */
+        text-align: center;
+        gap: 30px;
+        padding: 20px 10px;
+    }
+
+    /* 2. Ajustamos el texto para que no se pegue a los bordes */
+    .inicio-texto {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .inicio-texto h2 {
+        font-size: 1.6rem; /* Bajamos un poco el tamaño para que no quiebre feo */
+    }
+
+    /* 3. ¡EL FIX DE LAS FOTOS! */
+    .inicio-fotos-stack {
+        width: 100%;
+        max-width: 320px; /* Tamaño ideal para pantalla de celu */
+        margin: 0 auto;   /* Centramos el stack de fotos */
+    }
+
+    .foto-wrapper {
+        max-width: 100%; /* Que ocupe todo el ancho disponible */
+        margin-bottom: 20px;
+    }
+
+    .foto-wrapper img {
+        width: 100% !important; /* Forzamos que la imagen se vea */
+        height: auto;
+        box-shadow: 10px 10px 0px -4px #e67e22; /* Sombra un poco más pequeña para celu */
+    }
+
+    /* Ajuste de tablas (para que no se salgan de la pantalla) */
+    table {
+        display: block;
+        overflow-x: auto; /* Permite scroll horizontal solo en la tabla si es muy ancha */
+        white-space: nowrap;
+    }
+}
