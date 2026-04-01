@@ -1,0 +1,365 @@
+/* --- 1. RESET Y CONFIGURACIÓN BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* --- 2. HEADER (Logo Grande y Texto Centrado) --- */
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 8px 8px 0 0;
+    display: grid;
+    grid-template-columns: 350px 1fr 350px; 
+    align-items: center; 
+    gap: 20px;
+}
+
+.logo-empresa {
+    max-width: 300px;
+    height: auto;
+    justify-self: start;
+}
+
+.header-texto {
+    text-align: center;
+}
+
+/* --- 3. ESTRUCTURA DASHBOARD --- */
+.dashboard {
+    display: flex;
+    min-height: 600px;
+    background: white;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative; /* Importante para la lógica de visibilidad */
+}
+
+/* Sidebar (Menú Lateral) */
+.sidebar {
+    width: 250px;
+    background: #34495e;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ddd;
+}
+
+.nav-item {
+    color: #ecf0f1;
+    padding: 18px 25px;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid #2c3e50;
+    cursor: pointer; /* Para que parezca un botón */
+    transition: 0.3s;
+}
+
+.nav-item:hover {
+    background: #2c3e50;
+    color: #e67e22;
+}
+
+/* Área de Contenido Dinámico */
+.contenido-dinamico {
+    flex: 1;
+    padding: 40px;
+}
+
+/* --- 4. LA MAGIA: Lógica de Visibilidad (Sin Saltos) --- */
+
+/* Escondemos todas las secciones por defecto */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Si el botón radio está seleccionado (~ busca el hermano), muestra la sección correspondiente */
+#ctrl-inicio:checked ~ .contenido-dinamico #view-inicio { display: block; }
+#ctrl-pc:checked ~ .contenido-dinamico #view-pc { display: block; }
+#ctrl-notebook:checked ~ .contenido-dinamico #view-notebook { display: block; }
+#ctrl-software:checked ~ .contenido-dinamico #view-software { display: block; }
+#ctrl-consolas:checked ~ .contenido-dinamico #view-consolas { display: block; }
+#ctrl-combos:checked ~ .contenido-dinamico #view-combos { display: block; }
+#ctrl-reacondicionados:checked ~ .contenido-dinamico #view-reacondicionados { display: block; }
+#ctrl-entrega:checked ~ .contenido-dinamico #view-entrega { display: block; }
+#ctrl-garantia:checked ~ .contenido-dinamico #view-garantia { display: block; }
+
+/* Efecto visual de "Botón Activo" en el menú */
+#ctrl-inicio:checked ~ .sidebar [for="ctrl-inicio"],
+#ctrl-pc:checked ~ .sidebar [for="ctrl-pc"],
+#ctrl-notebook:checked ~ .sidebar [for="ctrl-notebook"],
+#ctrl-software:checked ~ .sidebar [for="ctrl-software"],
+#ctrl-consolas:checked ~ .sidebar [for="ctrl-consolas"],
+#ctrl-combos:checked ~ .sidebar [for="ctrl-combos"],
+#ctrl-reacondicionados:checked ~ .sidebar [for="ctrl-reacondicionados"],
+#ctrl-entrega:checked ~ .sidebar [for="ctrl-entrega"],
+#ctrl-garantia:checked ~ .sidebar [for="ctrl-garantia"] {
+    background: #2c3e50;
+    border-left: 6px solid #e67e22;
+    color: #e67e22;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 5. TABLAS Y CONTACTO (Mantenemos tu estilo) --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th { background: #f8f9fa; }
+
+.detalle {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    font-style: italic;
+    display: block;
+}
+
+#contacto {
+    background: white;
+    margin: 20px auto;
+    max-width: 1100px;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+footer { text-align: center; padding: 20px; color: #777; }
+
+/* --- 6. MODO CELULAR --- */
+@media (max-width: 900px) {
+    header {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 1rem;
+    }
+    .logo-empresa { justify-self: center; max-width: 220px; }
+
+    .dashboard { flex-direction: column; }
+    
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto; /* Permite deslizar el menú de lado */
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .nav-item {
+        padding: 12px 20px;
+        white-space: nowrap; /* Evita que el texto se parta en dos líneas */
+    }
+    
+    .contenido-dinamico { padding: 20px; }
+}
+
+/* --- BOTÓN WHATSAPP FLOTANTE --- */
+.btn-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background-color: #25d366; /* Verde oficial */
+    color: white;
+    border-radius: 50%;
+    
+    /* FLEXBOX: Esto es lo que centra el ícono perfectamente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 9999; /* Siempre por encima de todo */
+    transition: all 0.3s ease;
+    text-decoration: none;
+    
+    /* Animación de latido para llamar la atención */
+    animation: pulse-fixor 2s infinite;
+}
+
+/* El tamaño del ícono dentro del círculo */
+.btn-whatsapp svg {
+    width: 35px; 
+    height: 35px;
+}
+
+/* Efecto al pasar el mouse */
+.btn-whatsapp:hover {
+    transform: scale(1.1) rotate(5deg);
+    background-color: #128c7e;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* Animación de pulso */
+@keyframes pulse-fixor {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Ajuste para que en celulares no tape tanto espacio */
+@media (max-width: 768px) {
+    .btn-whatsapp {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+    }
+    .btn-whatsapp svg {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* --- DISEÑO SPLIT (INICIO) --- */
+.inicio-split {
+    display: flex;
+    align-items: center; /* Centra verticalmente el texto con la foto */
+    gap: 40px; /* Espacio entre el texto y la foto */
+    min-height: 400px;
+}
+
+.inicio-texto {
+    flex: 1; /* Toma la mitad de la pantalla */
+}
+
+.inicio-texto h2 {
+    color: #2c3e50;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.inicio-texto h3 {
+    color: #e67e22; /* Tu naranja corporativo */
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.inicio-texto p {
+    margin-bottom: 15px;
+    text-align: justify;
+    color: #555;
+}
+
+/* El toque "Advanced" */
+.badge-ingenieria {
+    display: inline-block;
+    background: #ecf0f1;
+    color: #2c3e50;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-left: 4px solid #e67e22;
+    margin-top: 10px;
+}
+
+/* --- DISEÑO STACK VERTICAL DE FOTOS --- */
+.inicio-fotos-stack {
+    flex: 1; /* Toma la mitad de la pantalla */
+    display: flex;
+    flex-direction: column; /* Apila las fotos hacia abajo */
+    gap: 20px; /* Espacio entre las dos fotos */
+    align-items: center;
+}
+
+.foto-wrapper {
+    width: 100%;
+    max-width: 350px;
+    position: relative;
+}
+
+/* Efectos compartidos para las fotos */
+.foto-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px; /* Bordes redondeados modernos */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Sombra naranja decorativa desplazada para la foto de Tío Fixor */
+.foto-tio img {
+    box-shadow: 15px 15px 0px -4px #e67e22, 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Un pequeño efecto al pasar el mouse por encima */
+.foto-wrapper:hover img {
+    transform: translateY(-5px); /* Se levanta un poquito */
+}
+
+/* --- BADGE ADVANCED PARA HARDWARE --- */
+.foto-hardware .badge-hardware {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background-color: rgba(44, 62, 80, 0.9); /* Azul Fixor con transparencia */
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-left: 3px solid #e67e22; /* El naranja Fixor */
+}
+
+/* Responsivo para celular */
+@media (max-width: 850px) {
+    .inicio-fotos-stack {
+        flex-direction: row; /* En celular, ponlas lado a lado (pero con scroll horizontal si es muy angosto) */
+        overflow-x: auto;
+        justify-content: center;
+        width: 100%;
+        gap: 15px;
+        padding-bottom: 10px;
+    }
+    .foto-wrapper {
+        flex-shrink: 0; /* Evita que las fotos se achiquen */
+        max-width: 250px;
+    }
+}
+
+/* --- AJUSTE DE SANGRÍA EN ENTREGA/RETIRO --- */
+#view-entrega ul {
+    margin-left: 35px; /* Esto empuja toda la lista hacia la derecha */
+    margin-top: 15px;  /* Espacio extra arriba para que no pegue con el texto */
+}
+
+#view-entrega li {
+    margin-bottom: 12px; /* Espacio entre cada punto para que no se vean amontonados */
+    padding-left: 10px;  /* Espacio entre el punto (bullet) y el texto */
+}
+
+#view-garantia ul {
+    margin-left: 35px; /* Esto empuja toda la lista hacia la derecha */
+    margin-top: 15px;  /* Espacio extra arriba para que no pegue con el texto */
+}
+
+#view-garantia li {
+    margin-bottom: 12px; /* Espacio entre cada punto para que no se vean amontonados */
+    padding-left: 10px;  /* Espacio entre el punto (bullet) y el texto */
+}

@@ -1,0 +1,12 @@
+# Archivos basura de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Carpetas de configuración de editores
+.vscode/
+.idea/
+
+# Archivos de logs y temporales
+*.log
+npm-debug.log*

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixorLab | Panel de Servicios Oficial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <img src="assets/logo_fixorlab.png" alt="Logo Oficial FixorLab" class="logo-empresa">
+        <div class="header-texto">
+            <h1>FixorLab</h1>
+            <p>Ingeniería en Soporte Técnico y Optimización</p>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <input type="radio" name="dash-control" id="ctrl-inicio" checked hidden>
+        <input type="radio" name="dash-control" id="ctrl-pc" hidden>
+        <input type="radio" name="dash-control" id="ctrl-notebook" hidden>
+        <input type="radio" name="dash-control" id="ctrl-software" hidden>
+        <input type="radio" name="dash-control" id="ctrl-consolas" hidden>
+        <input type="radio" name="dash-control" id="ctrl-combos" hidden>
+        <input type="radio" name="dash-control" id="ctrl-reacondicionados" hidden>
+        <input type="radio" name="dash-control" id="ctrl-entrega" hidden>
+        <input type="radio" name="dash-control" id="ctrl-garantia" hidden>
+
+        <nav class="sidebar">
+            <label for="ctrl-inicio" class="nav-item">🏠 Inicio</label>
+            <label for="ctrl-pc" class="nav-item">🖥️ PC Escritorio</label>
+            <label for="ctrl-notebook" class="nav-item">💻 Notebooks</label>
+            <label for="ctrl-software" class="nav-item">💾 Software</label>
+            <label for="ctrl-consolas" class="nav-item">🎮 Consolas/Mandos</label>
+            <label for="ctrl-combos" class="nav-item">⚡ Combos Fixor</label>
+            <label for="ctrl-reacondicionados" class="nav-item">♻️ Reacondicionados</label>
+            <label for="ctrl-entrega" class="nav-item">🚚 Entrega/Retiro</label>
+            <label for="ctrl-garantia" class="nav-item">🛡️ Garantía</label>
+        </nav>
+
+        <div class="contenido-dinamico">
+            
+            <section id="view-inicio" class="tab-content">
+                <div class="inicio-split">
+                    <div class="inicio-texto">
+                        <h2>Amor, pasión e Ingeniería detrás de cada tornillo</h2>
+                        <h3>¿Qué es FixorLab? ¿Qué lo diferencia de un servicio técnico convencional?</h3>
+                        <p>
+                            FixorLab no nació en una caja de herramientas, ni de un día para otro, nació de una frustración académica. 
+                            Como estudiante de <strong>Ingeniería en Informática</strong>, vi que al mercado le faltaba rigor. 
+                            La gente entrega sus herramientas de trabajo, sus dispositivos más preciados, más valiosos a cualquiera, 
+                            y eso es un riesgo de seguridad enorme.
+                        </p>
+                        <p>
+                            En el laboratorio del Tío Fixor, tratamos a cada equipo como una pieza de ingeniería. No solo la "limpiamos"; sino 
+                            que la <strong>Optimizamos, Blindamos y Certificamos</strong>. Tomamos tu hardware y lo llevamos 
+                            a su mejor versión técnica posible, con la transparencia de un informe profesional.
+                        </p>
+                        <h4>Usa el Menú de la izquierda para ver nuestros servicios</h4>
+                        <p>👈</p>
+                        <div class="badge-ingenieria">Protocolos de Seguridad Nivel Avanzado 🛡️</div>
+                    </div>
+
+                    <div class="inicio-fotos-stack">
+                        <div class="foto-wrapper foto-tio">
+                            <img src="assets/Tio_Fixor.png" alt="el Tío Fixor">
+                        </div>
+                        <div class="foto-wrapper foto-hardware">
+                            <img src="assets/Hardware_TioFixor.png" alt="Hardware del Tío Fixor">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tab-content" id="view-pc">
+                <h2>Precios Base</h2>
+                <table>
+                    <tr><th>Servicio</th><th>Precio</th></tr>
+                    <tr>
+                        <td>Mantención Estándar<br><span class="detalle">Limpieza profunda + Pasta térmica de calidad (Arctic MX-4)</span></td>
+                        <td>$20.000</td>
+                    </tr>
+                    <tr>
+                        <td>Mantención Extreme Gamer<br><span class="detalle">Pasta térmica de alto rendimiento (Cooler Master) + Limpieza de GPU + Gestión de cables</span></td>
+                        <td>$30.000</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="tab-content" id="view-notebook">
+                <h2>Precios Base</h2>
+                <table>
+                    <tr><th>Servicio</th><th>Precio</th></tr>
+                    <tr>
+                        <td>Mantención General<br><span class="detalle">Desarme completo + Limpieza de ventiladores + Pasta térmica de calidad (Arctic MX-6)</span></td>
+                        <td>$30.000</td>
+                    </tr>
+                    <tr>
+                        <td>Notebook Gamer / Workstation<br><span class="detalle">Limpieza de disipadores densos + Thermal pads (si aplica) + Pasta térmica de alto rendimiento (Cooler Master)</span></td>
+                        <td>$38.000</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="tab-content" id="view-software">
+                <h2>Precios Base en instalación de Software</h2>
+                <table>
+                    <tr><th>Servicio</th><th>Precio</th></tr>
+                    <tr>
+                        <td>Formateo Inicial<br><span class="detalle">Windows + Drivers + Navegador + AdBlock</span></td>
+                        <td>$18.000</td>
+                    </tr>
+                    <tr>
+                        <td>Formateo Full + Respaldo<br><span class="detalle">Todo lo anterior + Office + Respaldo (hasta 100GB)</span></td>
+                        <td>$25.000</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="tab-content" id="view-consolas">
+                <h2>Precios Base Consolas y Mandos</h2>
+                <table>
+                    <tr><th>Servicio</th><th>Precio</th></tr>
+                    <tr>
+                        <td>Limpieza PS4 / Xbox One<br><span class="detalle">Cambio de pasta térmica + reducción de ruido y temperatura (adiós turbina)</span></td>
+                        <td>$25.000</td>
+                    </tr>
+                    <tr>
+                        <td>Limpieza de Mandos<br><span class="detalle">Limpieza externa profunda + Desinfección + Contact Cleaner en sticks</span></td>
+                        <td>$8.000</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="tab-content" id="view-combos">
+                <h2>Precios de los COMBOS del Tío Fixor</h2>
+                <table>
+                    <tr><th>Pack</th><th>Precio</th></tr>
+                    <tr>
+                        <td>Pack Fixor PC (Full)<br><span class="detalle">Mantención Estándar + Formateo Full</span></td>
+                        <td>$40.000</td>
+                    </tr>
+                    <tr>
+                        <td>Pack Fixor Notebook (Full)<br><span class="detalle">Mantención General + Formateo Full</span></td>
+                        <td>$45.000</td>
+                    </tr>
+                    <tr>
+                        <td>Pack Fixor Consolas (Full)<br><span class="detalle">Consola + 1 Mando + Testeo de Estrés</span></td>
+                        <td>$30.000</td>
+                    </tr>
+                    <tr>
+                        <td>Adicional: +1 Mando<br><span class="detalle">Segundo mando en el mismo combo</span></td>
+                        <td>$5.000+</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="tab-content" id="view-reacondicionados">
+                <h2>Precios de productos Reacondicionados</h2>
+                <h1>Esta sección estará habilitada próximamente...</h1>
+            </section>
+
+            <section class="tab-content" id="view-entrega">
+                <h2>¿Cómo funciona la entrega y Retiro en FixorLab?</h2>
+                <p>Nuestro Laboratorio es la casa del Tío Fixor 🙌</p>
+                <p><strong>Cómo funciona el modo de entrega de dispositivos:</strong></p>
+                <p>Contamos con 3 opciones siempre pensando y destacando la <strong>Seguridad</strong> ante todo,
+                    tanto para nuestros clientes como para el Tío Fixor:</p>
+                <ul>
+                    <li>Nos juntamos en punto céntrico (un mall, una plaza, biblioteca)</li>
+                    <li>Puedes venir directamente a la casa del Tío Fixor a dejar tu Equipo</li>
+                    <li>O que el Tío Fixor vaya directo a tu casa buscar el equipo (cargo adicional entre <strong>+$5.000 a $8.000)</strong>
+                        dependiendo de las distancias y tiempos del Tio Fixor.</li>
+                </ul> 
+            </section>
+
+            <section class="tab-content" id="view-garantia">
+                <h2>¿Cómo funciona la Garantía en FixorLab?</h2>
+                <h4><strong>PROTEGE LO QUE TE IMPORTA</strong></h4>
+                <p>El servicio que ofrecemos en FixorLab cuenta con una garantía de<strong> 30 días corridos</strong>
+                   a partir del día de entrega, que cubre:</p>
+                <ul>
+                    <li>Cualquier falla derivada de la mano de obra (ensamblaje).</li>
+                    <li>Problemas con la aplicación de pasta térmica o de temperaturas.</li>
+                    <li>Estabilidad del Sistema (en caso de optimización o formateo).</li>
+                </ul>
+                <p>Cualquier duda o consulta respecto a la Garantía o cualquier otro servicio, no dudes en consultar.</p>
+                <h2>⚠️TÉRMINOS Y CONDICIONES⚠️</h2>
+                <h3>La garantía quedará anulada de inmediato si:</h3>
+                <ul>
+                    <li>El equipo presenta daños físicos posteriores al servicio entregado (golpes, caídas o contacto con líquidos).</li>
+                    <li>El equipo es abierto o intervenido por el usuario o por terceros que sean ajenos a FixorLab.</li>
+                    <li>Se eliminan o dañan los sellos de seguridad térmicos colocados.</li>
+                </ul>
+                <p><em>"Cada intervención en nuestro laboratorio se rige bajo estrictos protocolos de ingeniería y trazabilidad de componentes."</em></p>
+                <p>Si tienes dudas o consultas respecto a cómo funciona la Garantía, habla con El Tío Fixor. 
+                    Analizaremos el caso juntos para encontrar la solución técnica más adecuada para tu situación.</p>
+            </section>
+
+        </div> </main>
+
+    <section id="contacto" style="background: white; margin: 20px auto; max-width: 1100px; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <div class="contacto-info">
+            <h2>¿Listo para optimizar tu equipo?</h2>
+            <p>Escríbenos directamente para agendar tu hora:</p>
+            <p>📸 Instagram: <a href="https://instagram.com/fixorlab" target="_blank">@fixorlab</a></p>
+            <p>📧 Email: contacto.fixorlab@gmail.com</p>
+        </div>
+
+        <div class="contacto-boton-wrapper" style="margin-top: 20px;">
+            <span class="tooltip-fixor">¡Háblanos nomás!</span>
+            <a href="https://wa.me/56988285353?text=Hola%20FixorLab!%20Necesito%20una%20cotización." class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 35px; height: 35px;"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.1 0-65.6-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.4-8.6-44.6-27.5-16.4-14.7-27.5-32.8-30.7-38.3-3.2-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.5 5.5-9.2 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 FixorLab - Ingeniería, Seguridad y Calidad.</p>
+    </footer>
+
+</body>
+</html>
