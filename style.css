@@ -114,7 +114,6 @@ header {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- 5. TABLAS Y CONTACTO (Mantenemos tu estilo) --- */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -148,7 +147,23 @@ th { background: #f8f9fa; }
 
 footer { text-align: center; padding: 20px; color: #777; }
 
-/* --- 6. MODO CELULAR --- */
+/* ESTILOS DE FOTOS (ESCRITORIO) */ 
+
+/* Tio fixor */
+.foto-tio img {
+    box-shadow: 15px 15px 0px -4px #e67e22 !important;
+}
+
+/* Hardware */
+.foto-hardware img {
+    box-shadow: 15px 15px 0px -4px #364e66 !important;
+}
+
+.foto-wrapper:hover img {
+    transform: translate(-5px, -5px);
+}
+
+/* --- MODO CELULAR --- */
 @media (max-width: 900px) {
     header {
         grid-template-columns: 1fr;
@@ -327,86 +342,123 @@ footer { text-align: center; padding: 20px; color: #777; }
     border-left: 3px solid #e67e22; /* El naranja Fixor */
 }
 
-/* Responsivo para celular */
-@media (max-width: 850px) {
-    .inicio-fotos-stack {
-        flex-direction: row; /* En celular, ponlas lado a lado (pero con scroll horizontal si es muy angosto) */
-        overflow-x: auto;
-        justify-content: center;
-        width: 100%;
-        gap: 15px;
-        padding-bottom: 10px;
+/* 
+   ============================================================
+   BLOQUE EN DESUSO (Aprendizaje): 
+   Se reemplazó por el carrusel de 768px para evitar cortes.
+   ============================================================
+*/
+/* Compatibilidad para celular */
+/*
+    @media (max-width: 850px) {
+        .inicio-fotos-stack {
+            flex-direction: row; /* En celular, poner lado a lado (pero con scroll horizontal si es muy angosto) */
+            /* overflow-x: auto;
+            justify-content: center;
+            width: 100%;
+            gap: 15px;
+            padding-bottom: 10px;
+        }
+        .foto-wrapper {
+            flex-shrink: 0; /* Evita que las fotos se achiquen */
+            /* max-width: 250px;
+        }
+    } /*
+/* 
+  ============================================================
+   BLOQUE EN DESUSO (Aprendizaje): 
+   Se reemplazó por el carrusel de 768px para evitar cortes.
+   ============================================================
+*/
+
+
+    /* --- AJUSTE DE SANGRÍA EN ENTREGA/RETIRO --- */
+    #view-entrega ul {
+        margin-left: 35px; /* Esto empuja toda la lista hacia la derecha */
+        margin-top: 15px;   /*Espacio extra arriba para que no pegue con el texto */
     }
-    .foto-wrapper {
-        flex-shrink: 0; /* Evita que las fotos se achiquen */
-        max-width: 250px;
+
+    #view-entrega li {
+        margin-bottom: 12px; /* Espacio entre cada punto para que no se vean amontonados */
+        padding-left: 10px;  /* Espacio entre el punto (bullet) y el texto */
     }
-}
 
-/* --- AJUSTE DE SANGRÍA EN ENTREGA/RETIRO --- */
-#view-entrega ul {
-    margin-left: 35px; /* Esto empuja toda la lista hacia la derecha */
-    margin-top: 15px;  /* Espacio extra arriba para que no pegue con el texto */
-}
+    #view-garantia ul {
+        margin-left: 35px; /* Esto empuja toda la lista hacia la derecha */
+        margin-top: 15px;  /* Espacio extra arriba para que no pegue con el texto */
+    }
 
-#view-entrega li {
-    margin-bottom: 12px; /* Espacio entre cada punto para que no se vean amontonados */
-    padding-left: 10px;  /* Espacio entre el punto (bullet) y el texto */
-}
+    #view-garantia li {
+        margin-bottom: 12px; /* Espacio entre cada punto para que no se vean amontonados */
+        padding-left: 10px;  /* Espacio entre el punto (bullet) y el texto */
+    }
 
-#view-garantia ul {
-    margin-left: 35px; /* Esto empuja toda la lista hacia la derecha */
-    margin-top: 15px;  /* Espacio extra arriba para que no pegue con el texto */
-}
-
-#view-garantia li {
-    margin-bottom: 12px; /* Espacio entre cada punto para que no se vean amontonados */
-    padding-left: 10px;  /* Espacio entre el punto (bullet) y el texto */
-}
-
-/* --- OPTIMIZACIÓN MÓVIL PARA FIXORLAB --- */
+/* --- OPTIMIZACIÓN CELU PARA FIXORLAB --- */
+/* --- SE MEJORÓ LA IMAGEN DEL TIO FIXOR PARA VERSE COMPLETA Y HAYA SCROLL ---*/
 
 @media (max-width: 768px) {
-    /* 1. La pantalla dividida ahora es una sola columna */
+    /* La pantalla dividida ahora es una sola columna */
     .inicio-split {
-        flex-direction: column-reverse; /* La foto arriba, el texto abajo */
-        text-align: center;
-        gap: 30px;
-        padding: 20px 10px;
+        display: flex !important;
+        flex-direction: column; 
+        gap: 20px;
+        padding: 10px 0;
+        align-items: center;
+    }
+    
+    .inicio-fotos-stack { order: 1; }
+    .inicio-texto { order: 2; }
+
+    /* --- CARRUSEL HORIZONTAL! --- */
+    
+    .inicio-fotos-stack {
+        display: flex !important;
+        flex-direction: row !important;         /* Se fuerza a estar de lado */
+        overflow-x: auto;                       /* Scroll horizontal */
+        width: 100%;                           /* Que ocupe todo el ancho de pantalla */
+        max-width: 100%;
+        padding: 25px 5px 35px 5px;                     /* Espacio para no cortar la sombra */
+        gap: 20px;
+        scroll-snap-type: x mandatory;          /* El scroll calza en cada imagen */
+        -webkit-overflow-scrolling: touch;      /* Scroll suave */
     }
 
-    /* 2. Ajustamos el texto para que no se pegue a los bordes */
+    /* TAMAÑO DE LAS FOTOS PARA QUE SE VEA EL EFECTO CARRUSEL */
+    .foto-wrapper {
+        flex: 0 0 80%;                          /* Toda foto usa el 80% de ancho */
+        max-width: 280px;                       /* Tamaño "ideal" para no tapar todo el celu */ 
+        scroll-snap-align: center;
+    }
+
+    .foto-tio img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 12px 12px 0px -4px #364e66;     /* Mantengo sombrita Fixor (la imberti) */
+    }
+
+    .foto-hardware img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 12px 12px 0px -4px #e67e22;
+    }
+
+    /* TEXTO */
     .inicio-texto {
         width: 100%;
-        padding: 0 15px;
+        text-align: center;
+        padding: 0 20px;
     }
 
-    .inicio-texto h2 {
-        font-size: 1.6rem; /* Bajamos un poco el tamaño para que no quiebre feo */
+    /* Pequeño cambio estético (borra la barra de scroll) */
+    .inicio-fotos-stack::-webkit-scrollbar {
+        display: none;
     }
 
-    /* 3. ¡EL FIX DE LAS FOTOS! */
-    .inicio-fotos-stack {
-        width: 100%;
-        max-width: 320px; /* Tamaño ideal para pantalla de celu */
-        margin: 0 auto;   /* Centramos el stack de fotos */
+    .foto-tio img {
+        box-shadow: 10px 10px 0px -3px #364e66 !important;
     }
 
-    .foto-wrapper {
-        max-width: 100%; /* Que ocupe todo el ancho disponible */
-        margin-bottom: 20px;
-    }
-
-    .foto-wrapper img {
-        width: 100% !important; /* Forzamos que la imagen se vea */
-        height: auto;
-        box-shadow: 10px 10px 0px -4px #e67e22; /* Sombra un poco más pequeña para celu */
-    }
-
-    /* Ajuste de tablas (para que no se salgan de la pantalla) */
-    table {
-        display: block;
-        overflow-x: auto; /* Permite scroll horizontal solo en la tabla si es muy ancha */
-        white-space: nowrap;
+    .foto-hardware img {
+        box-shadow: 10px 10px 0px -3px #e67e22 !important;
     }
 }
